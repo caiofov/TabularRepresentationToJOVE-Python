@@ -3,7 +3,6 @@ import csv
 symbols = {"Ã˜": "v"}  # Ã˜ = Ø
 initial_state = "1"
 end = ["2", "6"]
-output = ""
 
 
 def parse_state(state: str) -> str:
@@ -18,6 +17,8 @@ def parse_state(state: str) -> str:
 
 
 def main() -> None:
+    output = ""
+
     with open("input.csv") as f:
         reader = csv.reader(f)
         l = list(reader)
@@ -31,6 +32,7 @@ def main() -> None:
         for next_st, letter in zip(transitions, header):
             next_st = parse_state(next_st)
             output += f"{st}: {letter} -> {next_st}\n"
+
     with open("output.txt", "w") as out:
         out.write(output)
 
