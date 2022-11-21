@@ -6,7 +6,7 @@ end = ["2", "6"]
 output = ""
 
 
-def parse_state(state):
+def parse_state(state: str) -> str:
     global symbols, initial_state, end
     state = symbols.get(state, state)
     if state == initial_state:
